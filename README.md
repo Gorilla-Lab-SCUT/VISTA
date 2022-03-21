@@ -125,6 +125,17 @@ We provide a pretrained model trained on the nuScenes dataset, the configuration
 | **Cons Vehicle AP** | **Pedestrian AP** | **Motorcycle AP** | **Bicycle AP** | **Traffic Cone AP** | **Barrier AP** |
 |      23.50      |     85.40     |     70.20     |    55.53   |      71.47      |    65.84   |
 
+## Acknowlegement
+
+This repo is built upon several opensourced codebases, shout out to them for their amazing works.
+
+- [det3D](https://github.com/poodarchu/Det3D)
+- [CenterPoint](https://github.com/tianweiy/CenterPoint)
+- [second.pytorch](https://github.com/traveller59/second.pytorch)
+- [mmcv](https://github.com/open-mmlab/mmcv)
+- [mmdetection](https://github.com/open-mmlab/mmdetection)
+- [OpenPCDet](https://github.com/open-mmlab/OpenPCDet)
+- [spconv](https://github.com/traveller59/spconv)
 
 # Bugs
 
