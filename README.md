@@ -137,6 +137,17 @@ This repo is built upon several opensourced codebases, shout out to them for the
 - [OpenPCDet](https://github.com/open-mmlab/OpenPCDet)
 - [spconv](https://github.com/traveller59/spconv)
 
+## Citation
+
+If you find this work useful in your research, please cite
+```
+@inproceedings{deng2022vista,
+  title={VISTA: Boosting 3D Object Detection via Dual Cross-VIew SpaTial Attention},
+  author={Deng, Shengheng and Liang, Zhihao and Sun, Lin and Jia, Kui},
+  booktitle={Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition},
+  year={2022}
+}
+```
 # Bugs
 
 If you find any bugs in this repo, please let me know!
