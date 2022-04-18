@@ -115,8 +115,8 @@ def create_groundtruth_database(
             gt_points = points[point_indices[:, i]]
             gt_points[:, :3] -= gt_boxes[i, :3]
             #set velocity to zero for nuscenes
-            if dataset_class_name == "NUSC":
-                gt_boxes[i,-3:-1] = 0
+            # if dataset_class_name == "NUSC":
+            #     gt_boxes[i,-3:-1] = 0
             with open(filepath, "w") as f:
                 gt_points[:, :point_features].tofile(f)
 
