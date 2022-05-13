@@ -12,7 +12,6 @@ from det3d.datasets.nuscenes import nusc_common as nu_ds
 from det3d.datasets.utils.create_gt_database import create_groundtruth_database
 
 
-
 def resample_infos(train_info_path, val_info_path, nsweeps):
     tasks = [
         dict(num_class=1, class_names=["car"]),
@@ -64,7 +63,8 @@ def resample_infos(train_info_path, val_info_path, nsweeps):
             if name in _class_names:
                 _cls_infos[name].append(info)
 
-    new_train_info_path = train_info_path.replace('velo.pkl', 'velo_resampled.pkl')
+    new_train_info_path = str(train_info_path).replace(
+        'velo.pkl', 'velo_resampled.pkl')
     with open(new_train_info_path, "wb") as f:
         pickle.dump(new_train_infos, f)
 
@@ -74,13 +74,16 @@ def nuscenes_data_prep(root_path, version, nsweeps=10):
     create_groundtruth_database(
         "NUSC",
         root_path,
-        Path(root_path) / "infos_train_{:02d}sweeps_withvelo.pkl".format(nsweeps),
+        Path(root_path) /
+        "infos_train_{:02d}sweeps_withvelo.pkl".format(nsweeps),
         nsweeps=1,
     )
-    train_info_read_path = Path(root_path) / "infos_train_{:02d}sweeps_withvelo.pkl".format(nsweeps)
+    train_info_read_path = Path(
+        root_path) / "infos_train_{:02d}sweeps_withvelo.pkl".format(nsweeps)
     train_info_copy_path = Path(root_path) / \
         "infos_train_{:02d}sweeps_repeat_withvelo.pkl".format(nsweeps)
-    val_info_read_path = Path(root_path) / "infos_val_{:02d}sweeps_withvelo.pkl".format(nsweeps)
+    val_info_read_path = Path(
+        root_path) / "infos_val_{:02d}sweeps_withvelo.pkl".format(nsweeps)
     val_info_copy_path = Path(root_path) / \
         "infos_val_{:02d}sweeps_repeat_withvelo.pkl".format(nsweeps)
     copyfile(train_info_read_path, train_info_copy_path)
@@ -90,9 +93,11 @@ def nuscenes_data_prep(root_path, version, nsweeps=10):
 
 
 def nuscenes_data_prep_test(root_path, nsweeps=10):
-    nu_ds.create_nuscenes_infos(root_path, version='v1.0-test', nsweeps=nsweeps)
+    nu_ds.create_nuscenes_infos(
+        root_path, version='v1.0-test', nsweeps=nsweeps)
     val_info_read_path = Path(root_path) / "infos_test_10sweeps_withvelo.pkl"
-    val_info_dump_path = Path(root_path) / "infos_test_10sweeps_repeat_withvelo.pkl"
+    val_info_dump_path = Path(root_path) / \
+        "infos_test_10sweeps_repeat_withvelo.pkl"
     with open(val_info_read_path, "rb") as f:
         _val_infos_all = pickle.load(f)
     for info in tqdm(_val_infos_all):
